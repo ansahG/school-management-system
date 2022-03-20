@@ -1,0 +1,1 @@
+ @livewire('head-teacher.students.recycle-bin')
