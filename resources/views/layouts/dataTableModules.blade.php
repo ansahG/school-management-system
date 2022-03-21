@@ -61,7 +61,7 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
+</div>
 @livewireScripts
 <!-- jQuery -->
 <script src="{{ asset('headTeacher/plugins/jquery/jquery.min.js') }}"></script>

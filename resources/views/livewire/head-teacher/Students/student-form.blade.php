@@ -109,8 +109,8 @@
                     @enderror
 
 
-                       <select class="col-2" wire:model="class_id">
-                      <option > class</option>
+                       <select class="col-2" wire:model="__class_id">
+                      <option> class</option>
                       @forelse($classes as $class)
                       <option value="{{ $class->id }}"> {{ $class->class }} </option>
                       @empty
@@ -118,7 +118,7 @@
                       @endforelse
                    
                     </select>
-                    @error('class_id')
+                    @error('__class_id')
                       <p style="color: red"> {{ $message }} </p>
                     @enderror
                   </div>

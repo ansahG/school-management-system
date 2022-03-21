@@ -1,5 +1,4 @@
 
-
 @extends('layouts.headTeacher')
 @section('content')
 
@@ -33,7 +32,7 @@
 						Religion: {{ $admin_student->_religion }}
 					</h4>
 					<h4 class="col-6 card rounded-corners">
-						Class: {{ $admin_student->class->class }}
+						{{ $studentClass }}
 					</h4>
 				</div>
 					<div class="col-12">

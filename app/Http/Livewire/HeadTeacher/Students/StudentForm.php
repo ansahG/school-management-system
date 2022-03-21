@@ -21,7 +21,7 @@ class StudentForm extends Component
     use WithFileUploads;
 
     public $student;
-    public $class_id;
+    public $__class_id;
     // student
     public $_studentAvatar; // this table will host the student url to the image
     public $_firstName;
@@ -40,7 +40,7 @@ class StudentForm extends Component
 
     private function emptyValues()
     {
-     $this->class_id= null;
+     $this->__class_id= null;
     // student
      $this->_studentAvatar = null; // this table will host the student url to the image
      $this->_firstName = null;
@@ -65,7 +65,7 @@ class StudentForm extends Component
     {
             $this->data = $this->validate([
             '_studentAvatar' => ['bail','mimes:jpg,jpeg,png','max:2045'],
-            'class_id' => ['bail', 'required'],
+            '__class_id' => ['bail', 'required'],
             '_firstName'=>['bail','required','max:15', 'min:2','string'],
             '_lastName'=>['bail','required','max:15', 'min:2','string'],
             '_otherName'=>['bail','nullable','string'],
@@ -74,7 +74,7 @@ class StudentForm extends Component
             '_gender'=>['bail','required','string'],
             '_religion'=>['required' , 'string'],
             '_moreInfo'=>['nullable', 'string', 'max:200', 'min:10'],
-            'class_id' => ['bail', 'required'],
+
             // parent validation
             '_parentName'=>['bail','required','max:30','min:10', 'string'],
             '_parentEmail'=>['bail','required', 'email','unique:students,_parentEmail',new DisposableEmail],
@@ -82,7 +82,7 @@ class StudentForm extends Component
             '_parentGhanaCard'=>['bail','required','digits:11','string'],
         ],
         [
-            'class_id.required'=> 'please select student class',
+            '__class_id.required'=> 'please select student class',
         ]
     );
     }
@@ -94,7 +94,7 @@ class StudentForm extends Component
        if($student)
        {
          $this->student = $student;
-         $this->class_id = $this->student->class_id;
+         $this->__class_id = $this->student->__class_id;
         $this->_firstName = $this->student->_firstName;
         $this->_lastName  =  $this->student->_lastName;
         $this->_otherName = $this->student->_otherName;

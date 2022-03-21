@@ -24,6 +24,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 // claass routes 
 Route::get('/CreateClass', [App\Http\Controllers\headTeacher\headTeacherController::class , 'classForm'])->name('classCreate');
+Route::get('/classDeck', [App\Http\Controllers\headTeacher\headTeacherController::class , 'classDeck'])->name('classDeck');
+Route::get('/Class_recycle', [App\Http\Controllers\headTeacher\headTeacherController::class , 'Class_recycle'])->name('classRecycle');
+Route::get('/class/{class}', [App\Http\Controllers\headTeacher\headTeacherController::class , 'viewClass'])->name('viewClass');
+Route::get('/editClass/{_class}', [App\Http\Controllers\headTeacher\headTeacherController::class , 'editClass'])->name('editClass');
 
 
 Route::get('/student_recycle', [App\Http\Controllers\headTeacher\headTeacherController::class , 'recycleBin'])->name('recycleBin');

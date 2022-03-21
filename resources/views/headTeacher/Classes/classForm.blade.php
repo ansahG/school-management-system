@@ -4,7 +4,7 @@
 
 
 
-@livewire('head-teacher.classes.student-class-component')
+@livewire('head-teacher.classes.student-class-component', ['_class' => null])
 
 
 @endsection

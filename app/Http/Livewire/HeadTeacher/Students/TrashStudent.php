@@ -24,7 +24,7 @@ class TrashStudent extends Component
             ]);
            Student::find($id)->update($trash);
 
-           session()->flash('message' , 'Student has been deleted with success!');
+           session()->flash('message' , 'Student has been trashed with success!');
            return $this->render();
         }
 

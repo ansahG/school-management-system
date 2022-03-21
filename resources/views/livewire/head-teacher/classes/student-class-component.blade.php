@@ -55,9 +55,10 @@
                   <tr>
                     <td style="font-style: bold">  {{ $class->class }}  </td>
                     <td> {{ $class->AKA }}</td>
-                    <td> <a href="" class="btn btn-success"> View </a>
-                     <a href="" class="btn btn-primary"> Edit </a> 
+                    <td> <a href="{{ route('viewClass',$class->class) }}" class="btn btn-success text-white"> View </a>
+                     <a href="{{ route('editClass', $class->class) }}" class="btn btn-primary text-white"> Edit </a> 
                     </td>
+                    
                   </tr>
                   @empty
                   <h2> No Class registered at {{ config('app.name') }} </h2>

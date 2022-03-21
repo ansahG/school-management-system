@@ -18,7 +18,7 @@ class RecycleBin extends Component
 
     public function render()
     {
-        $trashedStudent = Student::where('trash' , true)->get(['id','_firstName', '_lastName','class_id']);
+        $trashedStudent = Student::where('trash' , true)->get(['id','_firstName', '_lastName']);
         return view('livewire.head-teacher.students.recycle-bin', compact('trashedStudent'));
     }
 }

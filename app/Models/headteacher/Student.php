@@ -22,7 +22,7 @@ class Student extends Model
     '_ghanaCard',
     '_gender',
     '_religion',
-     'class_id',
+     '__class_id',
     '_moreInfo',
     '_parentName',
     '_parentEmail',

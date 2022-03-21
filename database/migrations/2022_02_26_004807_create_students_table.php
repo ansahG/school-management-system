@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('class_id');
+            $table->unsignedBigInteger('__class_id');
             $table->string('_studentAvatar')->nullable();
             $table->string('_firstName');
             $table->string('_lastName');

@@ -8,7 +8,7 @@ class AllStudents extends Component
 {
     public function render()
     {   // loadn student without the trashed ones
-        $students = Student::where('trash' , false)->get(['_firstName', '_lastName', '_ghanaCard']);
+        $students = Student::where('trash' , false)->get(['_firstName','_lastName','_ghanaCard']);
         return view('livewire.head-teacher.students.all-students', compact('students'));
     }
 }
