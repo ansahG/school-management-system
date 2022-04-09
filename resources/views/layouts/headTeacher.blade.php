@@ -923,6 +923,9 @@
 <!-- ./wrapper -->
             
             @livewireScripts
+            {{-- sweet alert script --}}
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="{{ asset('headTeacher/plugins/jquery/jquery.min.js') }}"></script>
@@ -943,7 +946,6 @@
 <script src="{{ asset('headTeacher/dist/js/pages/dashboard2.js') }}"></script>
 
 {{-- sweet alert --}}
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script type="text/javascript"> 
 
@@ -956,6 +958,9 @@
 
 
 </script>
+
+
+
 </body>
 </html>
 

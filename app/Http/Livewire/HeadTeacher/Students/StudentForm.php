@@ -59,33 +59,32 @@ class StudentForm extends Component
 
     }
 
-    private $data; 
+    // private $data; 
 
-    public function validator()
-    {
-            $this->data = $this->validate([
-            '_studentAvatar' => ['bail','mimes:jpg,jpeg,png','max:2045'],
-            '__class_id' => ['bail', 'required'],
-            '_firstName'=>['bail','required','max:15', 'min:2','string'],
-            '_lastName'=>['bail','required','max:15', 'min:2','string'],
-            '_otherName'=>['bail','nullable','string'],
-            '_birthDate'=>['bail','required', 'date','string'],
-            '_ghanaCard'=>['bail','required','digits:11','string'],
-            '_gender'=>['bail','required','string'],
-            '_religion'=>['required' , 'string'],
-            '_moreInfo'=>['nullable', 'string', 'max:200', 'min:10'],
+    // public function validator()
+    // {
+    //     $this->data = $this->validate([
+    //         '_studentAvatar' => ['bail','mimes:jpg,jpeg,png','max:2045'],
+    //         '__class_id' => ['bail', 'required'],
+    //         '_firstName'=>['bail','required','max:15', 'min:2','string'],
+    //         '_lastName'=>['bail','required','max:15', 'min:2','string'],
+    //         '_otherName'=>['bail','nullable','string'],
+    //         '_birthDate'=>['bail','required', 'date','string'],
+    //         '_ghanaCard'=>['bail','required','digits:11','string, unique:unique:students,_ghanaCard'],
+    //         '_gender'=>['bail','required','string'],
+    //         '_religion'=>['required' , 'string'],
+    //         '_moreInfo'=>['nullable', 'string', 'max:200', 'min:10'],
 
-            // parent validation
-            '_parentName'=>['bail','required','max:30','min:10', 'string'],
-            '_parentEmail'=>['bail','required', 'email','unique:students,_parentEmail',new DisposableEmail],
-            '_parentPhone'=>['bail','required','unique:students,_parentPhone',new TelephoneNumber],
-            '_parentGhanaCard'=>['bail','required','digits:11','string'],
-        ],
-        [
-            '__class_id.required'=> 'please select student class',
-        ]
-    );
-    }
+    //         // parent validation
+    //         '_parentName'=>['bail','required','max:30','min:10', 'string'],
+    //         '_parentEmail'=>['bail','required', 'email','unique:students,_parentEmail',new DisposableEmail],
+    //         '_parentPhone'=>['bail','required','unique:students,_parentPhone',new TelephoneNumber],
+    //         '_parentGhanaCard'=>['bail','required','digits:11','string'],
+    //     ],
+    //     [
+    //         '__class_id.required'=> 'please select student class',
+    //     ]);
+    // }
 
 
     public function mount($student)
@@ -107,6 +106,7 @@ class StudentForm extends Component
         $this->_parentEmail =   $this->student->_parentEmail;
         $this->_parentPhone =   $this->student->_parentPhone;
         $this->_parentGhanaCard =   $this->student->_parentGhanaCard;
+        $this->_studentAvatar = $this->student->_studentAvatar;
        }
     }
 
@@ -122,29 +122,76 @@ class StudentForm extends Component
       
             // saves e update the sttudent after validation checks and id checks
         
-        $this->validator();
+        // $this->validator();
         if($this->student)
             {
+
+                 $data = $this->validate([
+                '_studentAvatar' => ['bail','nullable','mimes:jpg,jpeg,png','max:2045'],
+                '__class_id' => ['bail', 'required'],
+                '_firstName'=>['bail','required','max:15', 'min:2','string'],
+                '_lastName'=>['bail','required','max:15', 'min:2','string'],
+                '_otherName'=>['bail','nullable','string'],
+                '_birthDate'=>['bail','required', 'date','string'],
+            '_ghanaCard'=>['bail','required','digits:11','string' , 'unique:students,_ghanaCard,'.$this->student->id],
+                '_gender'=>['bail','required','string'],
+                '_religion'=>['required' , 'string'],
+                '_moreInfo'=>['nullable', 'string', 'max:200', 'min:10'],
+
+            // parent validation
+                '_parentName'=>['bail','required','max:30','min:10', 'string'],
+                '_parentEmail'=>['bail','required', 'email','unique:students,_parentEmail,'.$this->student->id,new DisposableEmail],
+                '_parentPhone'=>['bail','required','unique:students,_parentPhone,'.$this->student->id,new TelephoneNumber],
+                '_parentGhanaCard'=>['bail','required','digits:11','string'],
+                ],
+                [
+                    '__class_id.required'=> 'please select student class',
+                ]);
+
 
                 if($this->_studentAvatar)
                 {
                     // this formular checks if there is student avatar being added again on update, it wil validate the new incoming image, delete the old one belonging to the student and then save the new one
                     Storage::disk('studentAvatars')->delete($this->student->_studentAvatar);
-                    $this->data['_studentAvatar'] = $this->_studentAvatar->store('/', 'studentAvatars');
+                    $data['_studentAvatar'] = $this->_studentAvatar->store('/', 'studentAvatars');
                 }
 
-                    Student::find($this->student->id)->update($this->data);
+                    Student::find($this->student->id)->update($data);
                     session()->flash('message', 'Student updated!');
                     return $this->render();
             }
         else
             {  
+                // this dta validation is valid for saving for the first time
+                $data = $this->validate([
+            '_studentAvatar' => ['bail','required','mimes:jpg,jpeg,png','max:2045'],
+            '__class_id' => ['bail', 'required'],
+            '_firstName'=>['bail','required','max:15', 'min:2','string'],
+            '_lastName'=>['bail','required','max:15', 'min:2','string'],
+            '_otherName'=>['bail','nullable','string'],
+            '_birthDate'=>['bail','required', 'date','string'],
+            '_ghanaCard'=>['bail','required','digits:11','string' , 'unique:students,_ghanaCard'],
+            '_gender'=>['bail','required','string'],
+            '_religion'=>['required' , 'string'],
+            '_moreInfo'=>['nullable', 'string', 'max:200', 'min:10'],
+
+            // parent validation
+            '_parentName'=>['bail','required','max:30','min:10', 'string'],
+            '_parentEmail'=>['bail','required', 'email','unique:students,_parentEmail',new DisposableEmail],
+            '_parentPhone'=>['bail','required','unique:students,_parentPhone',new TelephoneNumber],
+            '_parentGhanaCard'=>['bail','required','digits:11','string'],
+        ],
+        [
+            '_studentAvatar.required'=> 'please upload student avatar',
+            '__class_id.required'=> 'please select student class',
+        ]);
+
 
                 if($this->_studentAvatar)
                 {
-                    $this->data['_studentAvatar'] = $this->_studentAvatar->store('/', 'studentAvatars');
-                    Student::create($this->data);
-                    event(new RegisteredEmail($this->data));
+                    $data['_studentAvatar'] = $this->_studentAvatar->store('/', 'studentAvatars');
+                    Student::create($data);
+                    event(new RegisteredEmail($data));
                     $this->emptyValues();
                     session()->flash('message', 'Student saved with success!');
                 }

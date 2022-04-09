@@ -22,6 +22,15 @@ return new class extends Migration
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
+            // these fields are here for the employees
+            $table->string('_dateStarting')->nullable();
+            $table->string('_phone')->nullable();
+            $table->string('_ghanaCard')->nullable();
+            $table->string('_dateOfBirth')->nullable();
+            $table->string('_department')->nullable();
+            $table->string('_salary')->nullable();
+            $table->string('_trash')->default(false);
+
             $table->timestamps();
         });
     }

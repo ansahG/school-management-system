@@ -46,14 +46,12 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Main content -->
-    <section class="content">
+    <section class="content align-center">
         @yield('content')
     </section>
     <!-- /.content -->
   </div>
 
-
-  
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
@@ -89,6 +87,7 @@
 
 <!-- PAGE PLUGINS -->
 
+{{-- sweet alert --}}
 
 
 
@@ -110,5 +109,7 @@
     });
   });
 </script>
+
+
 </body>
 </html>

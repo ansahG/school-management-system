@@ -18,6 +18,11 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+   public function getRouteKeyName()
+    {
+        return 'name';
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -27,6 +32,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        '_dateStarting',
+        '_ghanaCard',
+        '_phone',
+        '_dateOfBirth',
+        '_department',
+        '_salary',
+        '_trash',
     ];
 
     /**
