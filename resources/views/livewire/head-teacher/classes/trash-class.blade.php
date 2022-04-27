@@ -6,7 +6,7 @@
                 <button class="btn btn-danger col-4 text-white" wire:click='trashClass({{ $class->id  }})'> Delete {{ $class->class }} </button>
             </div>
 
-            <a class="btn btn-primary col-4 text-white" href=""> make changes to {{ $class->class }} </a>
+            <a class="btn btn-primary col-4 text-white" href="{{ route('editClass',$class->class) }}"> make changes to {{ $class->class }} </a>
 
             </div>
 

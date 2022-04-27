@@ -1,0 +1,1 @@
+<td class="btn btn-danger" wire:click='remove({{ $report->id }})'> Remove </td>

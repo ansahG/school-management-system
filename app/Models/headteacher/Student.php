@@ -4,6 +4,7 @@ namespace App\Models\headteacher;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Classes\_Class as ClassRoom; 
+use App\Models\ReportCard;
 
 class Student extends Model
 {
@@ -13,7 +14,7 @@ class Student extends Model
     }
     use HasFactory;
 
-    public $fillable = [
+    protected $fillable = [
     '_studentAvatar',
     '_firstName',
     '_lastName',
@@ -35,5 +36,10 @@ class Student extends Model
     public function class()
     {
         return $this->belongsTo(ClassRoom::class);
+    }
+
+    public function report()
+    {
+        return $this->hasMany(ReportCard::class);
     }
 }

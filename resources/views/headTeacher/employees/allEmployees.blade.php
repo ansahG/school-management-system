@@ -17,7 +17,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th> Student Name</th>
+                    <th> Employee Name</th>
                     <th>ID(s)</th>
 {{--                     <th>Class</th>
  --}}                <th>Action</th>

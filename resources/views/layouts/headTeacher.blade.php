@@ -64,7 +64,7 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
+    <a href="{{ url()->previous() }}" class="btn btn-default">Back</a>
     <!-- Main content -->
     <section class="content">
 

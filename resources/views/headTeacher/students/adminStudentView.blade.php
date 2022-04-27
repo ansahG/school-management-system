@@ -1,79 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    @livewireStyles
 
-@extends('layouts.headTeacher')
-@section('content')
-
-	<div class="container">
-		{{-- student row ends here --}}
-		<div class="row">
-			<div class="col-4">
-				<img src="{{ asset('/storage/studentAvatars/'.$admin_student->_studentAvatar) }}" style="max-width: 80%;">
-			</div>
-			<div class="col-8">
-				<div class="row">
-					<h4 class="col-6 card rounded-corners shadow">
-						First Name: {{ $admin_student->_firstName }}
-					</h4>
-					<h4 class="col-6 card rounded-corners">
-						Last Name: {{ $admin_student->_lastName }}
-					</h4>
-					<h4 class="col-6 card rounded-corners">
-						Othernames: {{ $admin_student->_otherNames }}
-					</h4>
-					<h4 class="col-6 card rounded-corners">
-						Birthdate: {{ $admin_student->_birthDate }}
-					</h4>
-					<h4 class="col-6 card rounded-corners">
-						ID: {{ $admin_student->_ghanaCard }}
-					</h4>
-					<h4 class="col-6 card rounded-corners">
-						Gender: {{ $admin_student->_gender }}
-					</h4>
-					<h4 class="col-6 card rounded-corners">
-						Religion: {{ $admin_student->_religion }}
-					</h4>
-					<h4 class="col-6 card rounded-corners">
-						{{ $studentClass }}
-					</h4>
-				</div>
-					<div class="col-12">
-						{{ $admin_student->_moreInfo }}
-					</div>
-			</div>
-		</div>	{{-- student row ends here --}}
-
-				<h3 style="text-align: center"> Parent Information </h3>	
-				{{-- parent row starts here --}}
-		<div class="row">
-			<div class="col-6">
-				Parent Name: {{ $admin_student->_parentName }}
-			</div>
-			<div class="col-6">
-				Parent Email: <a href="mailto:{{ $admin_student->_parentEmail }}"> {{ $admin_student->_parentEmail }}</a>
-			</div>
-			<div class="col-6">
-				Parent phone: <a href="tel:{{ $admin_student->_parentPhone }}"> {{ $admin_student->_parentPhone }} </a>
-			</div>
-			<div class="col-6">
-				Parent Ghana Id: {{ $admin_student->_parentGhanaCard }}
-			</div>
-		</div> {{-- parent row ends here --}}
-	
-	</div>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
-		@livewire('head-teacher.students.trash-student', ['student' => $admin_student])
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> </title>
 
 
-		 accounting information 
+  <style type="text/css">
+    
+body {
+    background: rgb(99, 39, 120)
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+
+  </style>
+</head>
+<body>
 
 
-		 report card here
+<div class="container rounded bg-white mt-5 mb-5">
+    <a class="btn btn-info" href="{{url()->previous()}}"> Go back</a>
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="{{ asset('/storage/studentAvatars/'.$admin_student->_studentAvatar) }}"><span class="font-weight-bold">{{ $admin_student->_firstName }}</span><span class="text-black-100"> {{$age}} yrs </span><span> </span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Information</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label>First Name</label>
+                        <input  value="{{ $admin_student->_firstName }}" class="form-control" disabled>
+                    </div>
 
-@endsection
-		 a a modal  top delete this student please.
 
-		 The student will not be deleted right away but moved to trash()
-		 At trash one is allowed to return satudent to mainstream
+                      <div class="col-md-6"><label> Surname</label>
+                            <input  value="{{ $admin_student->_lastName }}" class="form-control" disabled>
+                      </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><label>Birthdate</label>
+                        <input  value="{{ $admin_student->_birthDate }}" class="form-control" disabled>
+                    </div>
+
+                    <div class="col-md-6"><label>GH card/ ID</label>
+                        <input  value="{{ $admin_student->_ghanaCard }}" class="form-control" disabled>
+                    </div>
+
+                     <div class="col-md-6"><label>Gender</label>
+                        <input  value="{{ $admin_student->_gender }}" class="form-control" disabled>
+                    </div>
+
+                     <div class="col-md-6"><label>Religion</label>
+                        <input  value="{{ $admin_student->_religion }}" class="form-control" disabled>
+                    </div>
+
+                    @isset($$admin_student->_moreInfo )
+                    <div class="col-md-12"><label>Additional Info</label>
+                        <textarea  value="" class="form-control" disabled> {{ $admin_student->_moreInfo }} </textarea>
+                    </div>
+                    @endisset
 
 
-		 In trash, student can then be made to be delted by all means from the system
+
+                    <h3 style="text-align: center;"> parent Information</h3>
+
+
+                    <div class="col-md-12"><label>Parent Name</label>
+                        <input  value="{{ $admin_student->_parentName }}" class="form-control" disabled>
+                    </div>
+                     <div class="col-md-12"><label>Parent Email</label>
+                        <input  value="{{ $admin_student->_parentEmail }}" class="form-control" disabled>
+                    </div>
+                     <div class="col-md-12"><label>Parent Phone</label>
+                        <input  value="{{ $admin_student->_parentPhone }}" class="form-control" disabled>
+                    </div>
+
+                    <div class="col-md-12"><label>Parent ID</label>
+                        <input  value="{{ $admin_student->_parentGhanaCard }}" class="form-control" disabled>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="row mt-3">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center experience"> @livewire('head-teacher.students.trash-student', ['student' => $admin_student])
+                </div><br>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+@livewireScripts
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -106,7 +106,7 @@ class StudentForm extends Component
         $this->_parentEmail =   $this->student->_parentEmail;
         $this->_parentPhone =   $this->student->_parentPhone;
         $this->_parentGhanaCard =   $this->student->_parentGhanaCard;
-        $this->_studentAvatar = $this->student->_studentAvatar;
+        // $this->_studentAvatar = $this->student->_studentAvatar;
        }
     }
 
@@ -127,7 +127,7 @@ class StudentForm extends Component
             {
 
                  $data = $this->validate([
-                '_studentAvatar' => ['bail','nullable','mimes:jpg,jpeg,png','max:2045'],
+                '_studentAvatar' => ['bail','nullable','mimes:jpg,jpeg,png','max:5120'],
                 '__class_id' => ['bail', 'required'],
                 '_firstName'=>['bail','required','max:15', 'min:2','string'],
                 '_lastName'=>['bail','required','max:15', 'min:2','string'],
@@ -146,25 +146,29 @@ class StudentForm extends Component
                 ],
                 [
                     '__class_id.required'=> 'please select student class',
+                    '_studentAvatar.max' => 'Avatar should not be more than 5mb',
                 ]);
 
 
-                if($this->_studentAvatar)
+                if($this->_studentAvatar != null)
                 {
                     // this formular checks if there is student avatar being added again on update, it wil validate the new incoming image, delete the old one belonging to the student and then save the new one
                     Storage::disk('studentAvatars')->delete($this->student->_studentAvatar);
                     $data['_studentAvatar'] = $this->_studentAvatar->store('/', 'studentAvatars');
+                }else{
+                    $data['_studentAvatar'] = $this->student->_studentAvatar;
                 }
-
                     Student::find($this->student->id)->update($data);
                     session()->flash('message', 'Student updated!');
                     return $this->render();
             }
+
+
         else
             {  
                 // this dta validation is valid for saving for the first time
                 $data = $this->validate([
-            '_studentAvatar' => ['bail','required','mimes:jpg,jpeg,png','max:2045'],
+            '_studentAvatar' => ['bail','required','mimes:jpg,jpeg,png','max:5120'],
             '__class_id' => ['bail', 'required'],
             '_firstName'=>['bail','required','max:15', 'min:2','string'],
             '_lastName'=>['bail','required','max:15', 'min:2','string'],
@@ -182,6 +186,7 @@ class StudentForm extends Component
             '_parentGhanaCard'=>['bail','required','digits:11','string'],
         ],
         [
+            '_studentAvatar.max' => 'Avatar should not be more than 5mb',
             '_studentAvatar.required'=> 'please upload student avatar',
             '__class_id.required'=> 'please select student class',
         ]);

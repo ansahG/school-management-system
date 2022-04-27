@@ -1,0 +1,1 @@
+ <button wire:click="delete({{ $event->id }})" class="btn btn-danger text-white"> Delete </button>

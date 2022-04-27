@@ -54,7 +54,7 @@ class StudentClassComponent extends Component
 
         ClassRoom::find($this->_class->id)->update($data);
         session()->flash('message', 'Class updated with success!');
-        return redirect()->route('CreateClass');
+        return redirect()->route('classCreate');
         }
 
         else{

@@ -4,7 +4,7 @@ namespace App\Models\classes;
 use App\Models\headteacher\Student;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\ReportCard;
 class _Class extends Model
 {
     use HasFactory;
@@ -17,10 +17,16 @@ class _Class extends Model
       protected $fillable = [
         'class',
         'AKA',
+        '_trashed'
       ];
 
     public function students()
     {
         return $this->hasMany(Student::class);
+    }
+
+     public function report()
+    {
+        return $this->hasMany(ReportCard::class);
     }
 }

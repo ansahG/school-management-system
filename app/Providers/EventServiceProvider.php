@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Providers;
-
+use App\Events\headTeacher\Employees\UpcomingEventNotification;
+use App\Listeners\headTeacher\Employees\UpcomingEventListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -22,6 +23,9 @@ class EventServiceProvider extends ServiceProvider
         ], 
         StudentEmailAtRegistration::class => [
             RegisteredEmailListener::class,
+        ],
+         UpcomingEventNotification::class => [
+            UpcomingEventListener::class,
         ], 
     ];
 
