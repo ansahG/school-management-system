@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-use App\Models\headteacher\Student;
+use App\Models\Administrator\Student;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Classes\_Class as ClassRoom; 

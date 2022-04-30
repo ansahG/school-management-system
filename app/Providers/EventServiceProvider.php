@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Providers;
-use App\Events\headTeacher\Employees\UpcomingEventNotification;
-use App\Listeners\headTeacher\Employees\UpcomingEventListener;
+use App\Events\Administrator\Employees\UpcomingEventNotification;
+use App\Listeners\Administrator\Employees\UpcomingEventListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
-use App\Events\headTeacher\students\RegisteredEmail as StudentEmailAtRegistration;
-use App\Listeners\headTeacher\students\RegisteredEmailListener;
+use App\Events\Administrator\students\RegisteredEmail as StudentEmailAtRegistration;
+use App\Listeners\Administrator\students\RegisteredEmailListener;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -35,6 +35,7 @@ class EventServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
+
     {
         //
     }

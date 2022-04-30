@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models\classes;
-use App\Models\headteacher\Student;
+use App\Models\Administrator\Student;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ReportCard;

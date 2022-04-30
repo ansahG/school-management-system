@@ -125,7 +125,7 @@ body {
             </ul>
           </div>
           For extra informations please visit your dashboard 
-          <div class="footer-link"><a href="{{ ('config.app')->fullUrl() }}">Dashboard </a></div>
+          {{-- <div class="footer-link"><a href="{{ ('config.app')->fullUrl() }}">Dashboard </a></div> --}}
         </div>
       </div>     
     </div>

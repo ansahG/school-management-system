@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Mail\headTeacher\Employees\upcomingEventMail;
+use App\Mail\Administrator\Employees\upcomingEventMail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,9 +25,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-// headTeacher routes
-// the employee routes for the headTeacher
-Route::middleware(['auth:sanctum'])->controller(App\Http\Controllers\headTeacher\EmployeeController::class)->group(function () {
+// Administrator routes
+// the employee routes for the Administrator
+Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Controllers\Administrator\EmployeeController::class)->group(function () {
     Route::get('/employee_recycle', 'employee_recycle')->name('employee_recycle');
     Route::get('/employee/form', 'add_employee')->name('add_employee');
     Route::get('/employee/form/{employee}', 'employeeFormEdit')->name('employeeFormEdit');
@@ -37,7 +37,7 @@ Route::middleware(['auth:sanctum'])->controller(App\Http\Controllers\headTeacher
 
 
 // class routes 
-Route::middleware(['auth:sanctum'])->controller(App\Http\Controllers\headTeacher\classController::class)->group(function () {
+Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Controllers\Administrator\classController::class)->group(function () {
     Route::get('/CreateClass', 'classForm')->name('classCreate');
     Route::get('/classDeck', 'classDeck')->name('classDeck');
     Route::get('/Class_recycle', 'Class_recycle')->name('classRecycle');
@@ -49,7 +49,7 @@ Route::middleware(['auth:sanctum'])->controller(App\Http\Controllers\headTeacher
 
 
 //head Teacher -> student routes here
-Route::middleware(['auth:sanctum'])->controller(App\Http\Controllers\headTeacher\studentController::class)->group(function () {
+Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Controllers\Administrator\studentController::class)->group(function () {
 
     Route::get('/student_recycle', 'recycleBin')->name('recycleBin');
 
@@ -63,11 +63,11 @@ Route::middleware(['auth:sanctum'])->controller(App\Http\Controllers\headTeacher
     // report card view for admin
     Route::get('/report/{class}/{admin_student}', 'adminViewReportCard')->name('adminViewReportCard');
 });
-// end of headTeacher routes
+// end of Administrator routes
 
 
 
-Route::middleware(['auth:sanctum'])->controller(App\Http\Controllers\headteacher\EventController::class)->group(function(){
+Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Controllers\Administrator\EventController::class)->group(function(){
     Route::get('/createEvent' , 'createEvent')->name('createEvent'); 
     Route::get('/Events' , 'loadEvents')->name('loadEvents'); 
     Route::get('/editEvent/{event}' , 'editEvent')->name('editEvent'); 

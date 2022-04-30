@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Teachers;
 use App\Models\Classes\_Class;
-Use App\Models\headteacher\Student;
+Use App\Models\Administrator\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 

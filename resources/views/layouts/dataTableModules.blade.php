@@ -9,19 +9,19 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ asset('headTeacher/plugins/fontawesome-free/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('administrator/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- DataTables -->
 
-    <link rel="stylesheet" href="{{ asset('headTeacher/plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('administrator/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="{{ asset('headTeacher/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('administrator/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
   <!-- Theme style -->
 
-  <link rel="stylesheet" href="{{ asset('headTeacher/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('headTeacher/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('headTeacher/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('administrator/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('administrator/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('administrator/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('headTeacher/dist/css/adminlte.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('administrator/dist/css/adminlte.min.css') }}">
                {{-- app assets --}}
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <script src="{{ mix('js/app.js') }}" defer></script>
@@ -62,28 +62,28 @@
 </div>
 @livewireScripts
 <!-- jQuery -->
-<script src="{{ asset('headTeacher/plugins/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('administrator/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
-<script src="{{ asset('headTeacher/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('administrator/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- DataTables  & Plugins -->
-<script src="{{ asset('headTeacher/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('headTeacher/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('headTeacher/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-<script src="{{ asset('headTeacher/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('headTeacher/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
-<script src="{{ asset('headTeacher/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('headTeacher/plugins/pdfmake/pdfmake.min.js') }}"></script>
-<script src="{{ asset('headTeacher/plugins/pdfmake/vfs_fonts.js') }}"></script>
-<script src="{{ asset('headTeacher/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
-<script src="{{ asset('headTeacher/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
-<script src="{{ asset('headTeacher/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+<script src="{{ asset('administrator/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('administrator/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('administrator/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('administrator/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('administrator/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('administrator/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('administrator/plugins/pdfmake/pdfmake.min.js') }}"></script>
+<script src="{{ asset('administrator/plugins/pdfmake/vfs_fonts.js') }}"></script>
+<script src="{{ asset('administrator/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('administrator/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+<script src="{{ asset('administrator/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 
 {{-- new. If shits aPPEAR, DROP THIS --}}
-{{-- <script src="{{ asset('headTeacher/plugins/jquery/jquery.min.js') }}"></script>
+{{-- <script src="{{ asset('administrator/plugins/jquery/jquery.min.js') }}"></script>
  --}}<!-- overlayScrollbars -->
-<script src="{{ asset('headTeacher/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+<script src="{{ asset('administrator/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="{{ asset('headTeacher/dist/js/adminlte.js') }}"></script>
+<script src="{{ asset('administrator/dist/js/adminlte.js') }}"></script>
 
 <!-- PAGE PLUGINS -->
 

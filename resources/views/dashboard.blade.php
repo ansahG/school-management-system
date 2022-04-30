@@ -10,9 +10,9 @@
 
     switch($department) 
     {
-      case 'Manager' : { echo( view('headTeacher.index') ); }
+      case 'Administrator' : { echo( view('administrator.index') ); }
       break; 
-      case 'Accountant' : { echo( view('You do accountance') ); }
+      case 'Accountant' : { echo( view('accountant.index') ); }
       break; 
       case 'Teacher' : { echo( view('Teacher.index') ); }
       break; 
