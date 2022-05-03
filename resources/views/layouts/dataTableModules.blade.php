@@ -30,6 +30,8 @@
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
+
+  @if(auth()->user()->_department == 'Administrator')
   <!-- Navbar -->
     @include('layouts.topNav')
   <!-- /.navbar -->
@@ -40,6 +42,7 @@
   <!-- Main Sidebar Container -->
       @include('layouts.sideNav')
      {{-- end side navbar --}}
+     @endif
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

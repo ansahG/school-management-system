@@ -38,6 +38,14 @@
                   </div>
 
                    <div class="form-group">
+                    <label for="_time"> Time  </label>
+                    <input type="time" class="form-control"   wire:model='_time'>
+                    @error('_time')
+                      <p style="color: red"> {{ $message }} </p>
+                    @enderror
+                  </div>
+
+                   <div class="form-group">
                     <label for="other_info">Event Description</label>
                     <textarea  class="form-control" wire:model='_eventDescription'> </textarea>
                     @error('_eventDescription')

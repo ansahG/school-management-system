@@ -25,6 +25,7 @@ class Event extends Model
         '_ticketPricing',
         '_eventDate',
         '_eventDescription',
+        '_time',
         'user_id',
       ];
 }

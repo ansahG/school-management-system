@@ -84,3 +84,11 @@ Route::middleware(['auth:sanctum'])->controller(App\Http\Controllers\Teachers\te
 });
 
 
+
+
+// accountant route
+Route::middleware(['auth:sanctum'])->controller(App\Http\Controllers\accountant\expenseController::class)->group(function(){
+    Route::get('/expenses_approved' , 'approvedExpenses')->name('approvedExpenses');
+
+    Route::get('/expenses_unapproved' , 'unapprovedExpenses')->name('unapprovedExpenses');
+});

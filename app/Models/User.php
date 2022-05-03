@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\Accountant\Expense;
 use App\Models\Administrator\Events\Event;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,9 +19,17 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+
+
    public function getRouteKeyName()
     {
         return 'name';
+    }
+
+
+    public function expense()
+    {
+        return $this->hasMany(Expense::class);
     }
 
     public function event()

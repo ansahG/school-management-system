@@ -111,10 +111,10 @@ body {
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
         </div>
         <div class="modal-body text-center">        
-          <h5 >Hello dear family, please be informaed that there will be a {{$data['_eventName']}} event coming {{$data['_eventDate']}}. Details follow</h5>
+          <h5 >Hello dear family, please be informaed that there will be a {{$data['_eventName']}} event coming {{$data['_eventDate']}} {{$data['_time']}} Prompt. Details follow</h5>
           <div class="form-group">
             <ul class="list-group">
-              @isset($data['_ticketPricing'])
+            @isset($data['_ticketPricing'])
              <li class="list-group-item"> Cost per student: {{$data['_ticketPricing']}} GHS </li>
              @endisset
 

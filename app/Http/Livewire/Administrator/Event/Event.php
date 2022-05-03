@@ -13,6 +13,7 @@ class Event extends Component
     public $_eventName;
     public $_ticketPricing;
     public $_eventDate;
+    public $_time;
     public $_eventDescription;
     public $user_id;
 
@@ -23,6 +24,7 @@ class Event extends Component
         $this->_eventDate = null;
         $this->_eventDescription = null;
         $this->user_id = null;
+        $this->_time = null;
         $this->_ticketPricing= null;
     }
 
@@ -34,6 +36,7 @@ class Event extends Component
             $this->_eventName = $this->event->_eventName;
             $this->_ticketPricing = $this->event->_ticketPricing;
             $this->_eventDate = $this->event->_eventDate;
+            $this->_time = $this->event->_time;
             $this->_eventDescription = $this->event->_eventDescription;
             $this->user_id = $this->event->user_id;
         }
@@ -46,10 +49,10 @@ class Event extends Component
             '_eventName' => ['bail' , 'required' , 'max:40', 'string'],
             '_ticketPricing' => ['bail' , 'nullable' , 'string'],
             '_eventDate' => ['bail' , 'required' , 'date'],
+            '_time' => ['bail' , 'required', 'date_format:H:i'],
             '_eventDescription' => ['bail' , 'required' , 'max:150', 'string'],
             'user_id' => ['bail','nullable',],
         ]);
-
 
         if($this->event)
         {

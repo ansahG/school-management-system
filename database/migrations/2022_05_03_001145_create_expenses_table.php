@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('expenses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user_id')->nullable();//Employee in charge id
-            $table->string('_eventName');
-            $table->string('_ticketPricing')->nullable();
-            $table->date('_eventDate');
-            $table->time('_time');
-            $table->string('_eventDescription');
+            $table->unsignedBigInteger('user_id');
+            $table->string('_expenseTitle');
+            $table->string('_amountSpending');
+            $table->date('_date');
+            $table->longText('_description');
+            $table->boolean('_approved')->default(false);
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('expenses');
     }
 };
