@@ -21,9 +21,10 @@ class EmployeeController extends Controller
     {
         // load users where they are not equal to auth auser id
         // $employees = User::where()->get()
-        $users = User::where('_trash', false)->get(['id','name', 'email', '_phone','id','_department']);
-        $employees = $users->where('id' , '>' , 1);//this is to ensure that the main admin is not displayed in the field list for employees
+        $employees = User::where('_trash', false)->simplePaginate(10);
+        // $employees = $users->where('id' , '>' , 1);//this is to ensure that the main admin is not displayed in the field list for employees
         //it is neccessary because else, any other admin added my school main admin can have total control over even the school owner
+        // this is now implemented in the view bcos of the paginaate
         return view('administrator.employees.allEmployees', compact('employees'));
     }
 

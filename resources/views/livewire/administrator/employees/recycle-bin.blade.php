@@ -16,28 +16,27 @@
                   </tr>
                   </thead>
                   <tbody>
-              @forelse($recycleEmployees as $recycleEmployees)
+              @forelse($recycleEmployees as $recycleEmployee)
 
                   <tr>
-                    <td style="font-style: bold">  {{ $recycleEmployees->name }}. {{ $recycleEmployees->email }}  </td>
+                    <td style="font-style: bold">  {{ $recycleEmployee->name }}. {{ $recycleEmployee->email }}  </td>
                     <td> Student class here </td>
 {{--                     <td> GHA-{{ $trashedStudent->_ghanaCard }}</td>
- --}}                    <td> <a href="{{ route('viewEmployee', $recycleEmployees->name) }}" class="btn btn-success text-white"> View </a>
-                     <button  wire:click='deletePermanently({{ $recycleEmployees->id  }})' class="btn btn-danger text-white"> Delete Permanently  </button> 
+ --}}                    <td> <a href="{{ route('viewEmployee', $recycleEmployee->name) }}" class="btn btn-success text-white"> View </a>
+                     <button  wire:click='deletePermanently({{ $recycleEmployee->id  }})' class="btn btn-danger text-white"> Delete Permanently  </button> 
                     </td>
                   </tr>
                   @empty
                   <h2> No Employees in recycle bin at {{ config('app.name') }} </h2>
               @endforelse
                   </tbody>
-                </table>
+               </table>
+                <br>
+                <span class="float-right"> {{ $recycleEmployees->links() }} </span class="float-right">
+
+
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
+         

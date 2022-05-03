@@ -24,7 +24,7 @@
                   </tr>
                   </thead>
                   <tbody>
-             @forelse($employees as $employee)
+             @forelse($employees->where('id' , '>' , '1') as $employee)
                   <tr>
                     <td style="font-style: bold"> {{ $employee->name }} </td>
                     <td style="font-style: bold"> {{ $employee->email }} </td>
@@ -40,6 +40,9 @@
  --}}              @endforelse
                   </tbody>
                 </table>
+                <br>
+                <span class="float-right"> {{ $employees->links() }} </span class="float-right">
+
               </div>
               <!-- /.card-body -->
             </div>

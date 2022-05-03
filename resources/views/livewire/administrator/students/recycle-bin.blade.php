@@ -1,43 +1,38 @@
 
-    <!-- Main content -->
-  
-            <div class="card">
+              <div class="card">
               <div class="card-header">
-                <h3 class="card-title center"> @isset($trashedStudent) {{ $trashedStudent->count() }} student(s) in recycle bin @endisset </h3>
+                <h3 class="card-title"> @isset($trashedStudent) {{ $trashedStudent->count() }} student(s) in recycle bin @endisset </h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th> Student Name</th>
-                    <th>Class </th>
-{{--                     <th>ID(s)</th>
- --}}                    <th>Action</th>
+                    <th>Name </th>
+                    <th>ID</th>
+                    <th>Action(s)</th>
                   </tr>
                   </thead>
                   <tbody>
-              @forelse($trashedStudent as $trashedStudent)
-
+               @forelse($trashedStudent as $student)
+                  
                   <tr>
-                    <td style="font-style: bold">  {{ $trashedStudent->_firstName }}. {{ $trashedStudent->_lastName[0] }}  </td>
-                    <td> Student class here </td>
-{{--                     <td> GHA-{{ $trashedStudent->_ghanaCard }}</td>
- --}}                    <td> <a href="{{ route('adminStudent', $trashedStudent->_firstName) }}" class="btn btn-success text-white"> View </a>
-                     <button  wire:click='deletePermanently({{ $trashedStudent->id  }})' class="btn btn-danger text-white"> Delete Permanently  </button> 
+                    <td>{{ $student->_firstName }}. {{ $student->_lastName }} </td>
+                    <td> GHA-{{ $student->_ghanaCard }} </td>
+                    <td>
+                      <a href="{{ route('adminStudent', $student->_firstName) }}" class="btn btn-success text-white"> View </a>
+                     <button  wire:click='deletePermanently({{ $student->id  }})' class="btn btn-danger text-white"> Delete Permanently  </button> 
                     </td>
                   </tr>
-                  @empty
-                  <h2> No students in recycle bin at {{ config('app.name') }} </h2>
+
+                    @empty
+                  <h2> No students registered at {{ config('app.name') }} </h2>
               @endforelse
                   </tbody>
                 </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+             <span class="float-right"> {{ $trashedStudent->links() }} </span class="float-right">
           </div>
-          <!-- /.col -->
+              <!-- /.card-body -->
+             </div>
+            <!-- /.card -->
 
-        <!-- /.row -->
-     

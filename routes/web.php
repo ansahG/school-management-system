@@ -18,6 +18,10 @@ Route::get('/', function () {
 });
 
 
+// Route::get('/table', function () {
+//     return view('layouts.dataTableModules');
+// });
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Administrator\Students;
 use App\Models\Administrator\Student;
-
+use Livewire\WithPagination;
 use Livewire\Component;
 
 class RecycleBin extends Component
@@ -18,7 +18,7 @@ class RecycleBin extends Component
 
     public function render()
     {
-        $trashedStudent = Student::where('trash' , true)->get(['id','_firstName', '_lastName']);
+        $trashedStudent = Student::where('trash' , true)->simplePaginate(20);
         return view('livewire.administrator.students.recycle-bin', compact('trashedStudent'));
     }
 }

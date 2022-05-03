@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Administrator\Students;
 use App\Http\Controllers\Administrator\AdministratorController;
 use App\Models\Administrator\Student;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class TrashStudent extends Component
 {

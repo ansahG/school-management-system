@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Administrator\Employees;
 use App\Models\User;
 use Livewire\Component;
-
+use Livewire\WithPagination;
 class RecycleBin extends Component
 {
 
@@ -18,7 +18,7 @@ class RecycleBin extends Component
 
     public function render()
     {
-    $recycleEmployees = User::where('_trash' , true)->get();
+    $recycleEmployees = User::where('_trash', true)->simplePaginate(10);
     return view('livewire.administrator.employees.recycle-bin', compact('recycleEmployees'));
     }
 }

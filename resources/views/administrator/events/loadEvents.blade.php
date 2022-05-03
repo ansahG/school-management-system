@@ -42,6 +42,8 @@
 
                   </tbody>
                 </table>
+                <span class="float-right"> {{ $events->links() }} </span class="float-right">
+
               </div>
               <!-- /.card-body -->
             </div>
