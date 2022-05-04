@@ -25,14 +25,52 @@
                        </div>
                     @endisset
 
-                    @isset($Events)
+                    @isset($upcomingEventsCount)
                       <div class="col-3">
-                        <a href="" class="card text-center py-4 text-decoration-none"> Total Events <br> 
-                            <h4> {{ $classesCount }} </h4>
+                        <a href="" class="card text-center py-4 text-decoration-none"> Total Events (upcoming)<br> 
+                            <h4> {{ $upcomingEventsCount }} </h4>
+                        </a>
+                       </div>
+                    @endisset
+            </div>
+{{-- accounting row --}}
+            <hr style="color:red">
+
+                <div class="row">
+                        <div class="btn btn-primary" style="text-align:center"> Accouting </div>
+                        <br>
+                   @isset($unapprovedExpenses)
+                      <div class="col-3">
+                        <a href="{{ route('adminUnapprovedExpenses') }}" class="card text-center py-4 text-decoration-none">  Expenses waiting approval <br> 
+                            <h4> {{ $unapprovedExpenses }} </h4>
                         </a>
                        </div>
                     @endisset
 
 
-            </div>
-        </div>
+                   @isset($approvedExpense)
+                      <div class="col-3">
+                        <a href="{{ route('adminApprovedExpenses') }}" class="card text-center py-4 text-decoration-none"> Total approved <br> 
+                            <h4> {{ $approvedExpense }} </h4>
+                        </a>
+                       </div>
+                    @endisset
+
+                    @isset($projectedSpendings)
+                      <div class="col-3">
+                        <a href="" class="card text-center py-4 text-decoration-none"> Projected Spendings <br> 
+                            <h4> {{ $projectedSpendings }} GHS</h4>
+                        </a>
+                       </div>
+                    @endisset
+
+                    @isset($totalSpent)
+                      <div class="col-3">
+                        <a href="" class="card text-center py-4 text-decoration-none">  Approved spending <br> 
+                            <h4> {{ $totalSpent }} GHS</h4>
+                        </a>
+                       </div>
+                    @endisset
+             </div>
+
+</div>

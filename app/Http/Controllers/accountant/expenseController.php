@@ -11,7 +11,7 @@ class expenseController extends Controller
     {
         $pageTitle = 'Approved Expenses';
         $expenses = Expenses::where('_approved' , true)->paginate(10);
-        return view('accountant.expensestable', compact(['expenses', 'pageTitle']));
+        return view('accountant.expenses.expensestable', compact(['expenses', 'pageTitle']));
     }
 
 
@@ -19,7 +19,12 @@ class expenseController extends Controller
     {
         // $pageTitle = 'Unapproved Expenses';
         $expenses = Expenses::where('_approved' , false)->paginate(10); 
-        return view('accountant.expensestable', compact(['expenses']));
+        return view('accountant.expenses.expensestable', compact(['expenses']));
+    }
+
+    public function viewExpense(Expenses $expense)
+    {
+        return view('accountant.expenses.viewEditExpense', compact(['expense'])); 
     }
 
 }

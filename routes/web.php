@@ -52,7 +52,7 @@ Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Contr
 
 
 
-//head Teacher -> student routes here
+//administration  -> student routes here
 Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Controllers\Administrator\studentController::class)->group(function () {
 
     Route::get('/student_recycle', 'recycleBin')->name('recycleBin');
@@ -67,6 +67,17 @@ Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Contr
     // report card view for admin
     Route::get('/report/{class}/{admin_student}', 'adminViewReportCard')->name('adminViewReportCard');
 });
+
+
+// admin accounting
+Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Controllers\Administrator\expenseController::class)->group(function(){
+    Route::get('/approved/expenses' , 'adminApproved')->name('adminApprovedExpenses');
+    Route::get('/unapproved/expenses' , 'adminUnapproved')->name('adminUnapprovedExpenses');
+        Route::get('/adminExpense/{expense}' , 'expenseView')->name('expenseView');
+});
+
+
+
 // end of Administrator routes
 
 
@@ -95,4 +106,6 @@ Route::middleware(['auth:sanctum'])->controller(App\Http\Controllers\accountant\
     Route::get('/expenses_approved' , 'approvedExpenses')->name('approvedExpenses');
 
     Route::get('/expenses_unapproved' , 'unapprovedExpenses')->name('unapprovedExpenses');
+
+       Route::get('/expenses/{expense}' , 'viewExpense')->name('viewExpense');
 });

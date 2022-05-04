@@ -24,6 +24,8 @@
 
 
     <div class="row">
+      <div class="btn btn-primary text-white" style="text-align:center"> Expenses </div>
+      <br>
                    @isset($approvedCount)
                       <div class="col-3">
                         <a href="{{ route('approvedExpenses') }}" class="card text-center py-4 text-decoration-none">  Approval  <br> 
@@ -35,6 +37,22 @@
                       <div class="col-3">
                         <a href="{{ route('unapprovedExpenses') }}" class="card text-center py-4 text-decoration-none"> Awaiting approval  <br> 
                             <h4> {{ $notApprovedCount }} </h4>
+                        </a>
+                       </div>
+                    @endisset
+
+                     @isset($projectedSpendings)
+                      <div class="col-3">
+                        <a href="" class="card text-center py-4 text-decoration-none"> Projected Spendings <br> 
+                            <h4> {{ $projectedSpendings }} GHS</h4>
+                        </a>
+                       </div>
+                    @endisset
+
+                    @isset($totalSpent)
+                      <div class="col-3">
+                        <a href="" class="card text-center py-4 text-decoration-none">  Approved spending <br> 
+                            <h4> {{ $totalSpent }} GHS</h4>
                         </a>
                        </div>
                     @endisset

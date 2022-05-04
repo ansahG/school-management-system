@@ -9,6 +9,10 @@ class Expense extends Model
 {
     use HasFactory;
 
+ public function getRouteKeyName()
+ {
+    return '_expenseTitle';
+ }
     protected $fillable = [
         'user_id',
         '_expenseTitle',

@@ -52,7 +52,7 @@
 
         </div>
 
-              <div class="">
+              <div class="inline-block" style="text-align: center">
                   <button type="submit" class="btn btn-primary text-white">Submit</button>
               </div>
 

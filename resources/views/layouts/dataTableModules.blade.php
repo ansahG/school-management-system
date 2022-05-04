@@ -24,6 +24,7 @@
 <div class="wrapper">
   <!-- Navbar -->
  
+@if(auth()->user()->_department == 'Administrator')
  @include('layouts.topNav')
 
 
@@ -32,6 +33,7 @@
   <!-- Main Sidebar Container -->
  @include('layouts.sideNav')
 
+ @endif
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
