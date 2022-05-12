@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Mail\Administrator\Employees\upcomingEventMail;
+use App\Mail\Accountant\schoolFeeReceiptMail;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,10 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-// Route::get('/table', function () {
-//     return view('layouts.dataTableModules');
-// });
+Route::get('/mail', function () {
+    return new schoolFeeReceiptMail();
+});
 
 
 
@@ -78,8 +77,6 @@ Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Contr
 
 
 
-// end of Administrator routes
-
 
 
 Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Controllers\Administrator\EventController::class)->group(function(){
@@ -88,15 +85,12 @@ Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Contr
     Route::get('/editEvent/{event}' , 'editEvent')->name('editEvent'); 
     Route::get('/event_archives' , 'archives')->name('eventArchives'); 
 });
+// end of Administrator routes
 
 
 
 
-// teacher routes for the report card
-Route::middleware(['auth:sanctum'])->controller(App\Http\Controllers\Teachers\teacherController::class)->group(function(){
-    Route::get('/{class}/assessment' , 'classAssessment')->name('classAssessment');
-    Route::get('/studentReport/{student}' , 'studentReport')->name('studentReport');
-});
+
 
 
 
@@ -108,4 +102,26 @@ Route::middleware(['auth:sanctum'])->controller(App\Http\Controllers\accountant\
     Route::get('/expenses_unapproved' , 'unapprovedExpenses')->name('unapprovedExpenses');
 
        Route::get('/expenses/{expense}' , 'viewExpense')->name('viewExpense');
+});
+
+
+Route::middleware(['auth:sanctum'])->controller( App\Http\Controllers\accountant\schoolFeesController::class)->group(function(){
+   Route::get('/selectClass', 'selectClass')->name('loadClassForFees');
+   Route::get('/schoolFees/class/{class}', 'enterClass')->name('studentClassFee');
+   Route::get('/payFee/{student}', 'payFee')->name('payFee');
+});
+
+
+
+
+
+
+
+
+
+
+// teacher routes for the report card
+Route::middleware(['auth:sanctum'])->controller(App\Http\Controllers\Teachers\teacherController::class)->group(function(){
+    Route::get('/{class}/assessment' , 'classAssessment')->name('classAssessment');
+    Route::get('/studentReport/{student}' , 'studentReport')->name('studentReport');
 });

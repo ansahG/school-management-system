@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Providers;
+use App\Events\Accountant\PayedFeeNotifier;
+use App\Listeners\Accountant\PayedFeeNotifierListener;
 use App\Events\Administrator\Employees\UpcomingEventNotification;
 use App\Listeners\Administrator\Employees\UpcomingEventListener;
 use Illuminate\Auth\Events\Registered;
@@ -26,6 +28,9 @@ class EventServiceProvider extends ServiceProvider
         ],
          UpcomingEventNotification::class => [
             UpcomingEventListener::class,
+        ], 
+         PayedFeeNotifier::class => [
+            PayedFeeNotifierListener::class,
         ], 
     ];
 

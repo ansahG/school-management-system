@@ -177,7 +177,7 @@
 
                   <div class="form-group">
                     <label for="Parent_Email">Phone</label>
-                    <input type="number" class="form-control" placeholder="@example.com" wire:model='_parentPhone' >
+                    <input type="tel" class="form-control" placeholder="" wire:model='_parentPhone' >
                     @error('_parentPhone')
                       <p style="color: red"> {{ $message }} </p>
                     @enderror

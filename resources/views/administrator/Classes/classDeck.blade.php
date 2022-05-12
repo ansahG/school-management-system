@@ -5,7 +5,7 @@
 		<div class="container">
 			<div class="row">
 				@forelse($classes as $class)
-					<div class="col-3">
+					<div class="col-sm-6 col-md-3">
 						<a href="{{ route('viewClass', $class->class) }}" class="card text-center py-4 text-decoration-none"> {{ $class->class }} <br> 
 							<small> ({{ $class->AKA }}) </small>
 						</a href="">

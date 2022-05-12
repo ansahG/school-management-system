@@ -5,7 +5,8 @@
 		<div class="container">
 			<div class="row">
 				@forelse($recycleClasses as $class)
-					<div class="col-3" style="background-color: red !important">
+					<div class="col-sm-6 col-md-3" style="background-color: red !important">
+
 						<a href="{{ route('viewClass', $class->class) }}" class="card text-center py-4 text-decoration-none"> {{ $class->class }} <br> 
 							<small> ({{ $class->AKA }}) </small>
 						</a href="">

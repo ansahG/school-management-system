@@ -67,7 +67,11 @@ body {
     <a class="btn btn-info" href="{{url()->previous()}}"> Go back</a>
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="{{ asset('/storage/studentAvatars/'.$admin_student->_studentAvatar) }}"><span class="font-weight-bold">{{ $admin_student->_firstName }}</span><span class="text-black-100"> {{$age}} yrs </span><span> </span></div>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle mt-5" width="150px" src="{{ asset('/storage/studentAvatars/'.$admin_student->_studentAvatar) }}">
+                <span class="font-weight-bold">{{ $admin_student->_firstName }}</span>
+                <span class="text-black-100"> {{$age}} yrs </span>
+                <span> </span></div>
         </div>
         <div class="col-md-6 border-right">
             <div class="p-3 py-5">

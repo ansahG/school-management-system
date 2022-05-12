@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Classes\_Class as ClassRoom; 
 use App\Models\ReportCard;
-
+use App\Models\Accountant\SchoolFee;
 class Student extends Model
 {
     public function getRouteKeyName()
@@ -42,4 +42,10 @@ class Student extends Model
     {
         return $this->hasMany(ReportCard::class);
     }
+
+        public function schoolFees()
+    {
+        return $this->hasOne(SchoolFee::class);
+    }
+
 }
