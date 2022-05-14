@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Middleware\Administrator;
+namespace App\Http\Middleware\Accountant;
 
 use Closure;
 use Illuminate\Http\Request;
 
-class AdminOnlyRoute
+class accountantOnly
 {
     /**
      * Handle an incoming request.
@@ -16,13 +16,10 @@ class AdminOnlyRoute
      */
     public function handle(Request $request, Closure $next)
     {
-           if(auth()->user()->_department == 'Manager')
-           {
-             return $next($request);
-           }
-
-           return redirect(404);
+       if(auth()->user()->_department == 'Accountant')
+       {
+         return $next($request);
+       }
+        return redirect(404);
     }
 }
-
-

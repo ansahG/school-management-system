@@ -64,7 +64,9 @@ body {
 
 
 <div class="container rounded bg-white mt-5 mb-5">
+
     <a class="btn btn-info" href="{{url()->previous()}}"> Go back</a>
+
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
@@ -72,6 +74,10 @@ body {
                 <span class="font-weight-bold">{{ $admin_student->_firstName }}</span>
                 <span class="text-black-100"> {{$age}} yrs </span>
                 <span> </span></div>
+                    <br>
+                 <div class="" style="text-align: center">
+                  <a href="{{ route('studentReport', $admin_student->_firstName) }}" type="submit" class="btn btn-primary text-white">View Academics</a>
+                </div>
         </div>
         <div class="col-md-6 border-right">
             <div class="p-3 py-5">
@@ -112,6 +118,9 @@ body {
                     @endisset
 
 
+                      
+
+               
 
                     <h3 style="text-align: center;"> parent Information</h3>
 

@@ -29,24 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 // Administrator routes
-// the employee routes for the Administrator
-Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Controllers\Administrator\EmployeeController::class)->group(function () {
-    Route::get('/employee_recycle', 'employee_recycle')->name('employee_recycle');
-    Route::get('/employee/form', 'add_employee')->name('add_employee');
-    Route::get('/employee/form/{employee}', 'employeeFormEdit')->name('employeeFormEdit');
-    Route::get('/employees/{employee}', 'viewEmployee')->name('viewEmployee');
-    Route::get('/all-employees', 'allEmployees')->name('allEmployees');
-});
 
-
-// class routes 
-Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Controllers\Administrator\classController::class)->group(function () {
-    Route::get('/CreateClass', 'classForm')->name('classCreate');
-    Route::get('/classDeck', 'classDeck')->name('classDeck');
-    Route::get('/Class_recycle', 'Class_recycle')->name('classRecycle');
-    Route::get('/class/{class}', 'viewClass')->name('viewClass');
-    Route::get('/editClass/{_class}', 'editClass')->name('editClass');
-});
 
 
 
@@ -68,11 +51,31 @@ Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Contr
 });
 
 
-// admin accounting
-Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Controllers\Administrator\expenseController::class)->group(function(){
-    Route::get('/approved/expenses' , 'adminApproved')->name('adminApprovedExpenses');
-    Route::get('/unapproved/expenses' , 'adminUnapproved')->name('adminUnapprovedExpenses');
-        Route::get('/adminExpense/{expense}' , 'expenseView')->name('expenseView');
+
+
+
+
+// class routes 
+Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Controllers\Administrator\classController::class)->group(function () {
+    Route::get('/CreateClass', 'classForm')->name('classCreate');
+    Route::get('/classDeck', 'classDeck')->name('classDeck');
+    Route::get('/Class_recycle', 'Class_recycle')->name('classRecycle');
+    Route::get('/class/{class}', 'viewClass')->name('viewClass');
+    Route::get('/editClass/{_class}', 'editClass')->name('editClass');
+});
+
+
+
+
+
+
+// the employee routes for the Administrator
+Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Controllers\Administrator\EmployeeController::class)->group(function () {
+    Route::get('/employee_recycle', 'employee_recycle')->name('employee_recycle');
+    Route::get('/employee/form', 'add_employee')->name('add_employee');
+    Route::get('/employee/form/{employee}', 'employeeFormEdit')->name('employeeFormEdit');
+    Route::get('/employees/{employee}', 'viewEmployee')->name('viewEmployee');
+    Route::get('/all-employees', 'allEmployees')->name('allEmployees');
 });
 
 
@@ -85,7 +88,20 @@ Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Contr
     Route::get('/editEvent/{event}' , 'editEvent')->name('editEvent'); 
     Route::get('/event_archives' , 'archives')->name('eventArchives'); 
 });
-// end of Administrator routes
+
+
+
+
+
+// admin accounting
+Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Controllers\Administrator\expenseController::class)->group(function(){
+    Route::get('/approved/expenses' , 'adminApproved')->name('adminApprovedExpenses');
+    Route::get('/unapproved/expenses' , 'adminUnapproved')->name('adminUnapprovedExpenses');
+        Route::get('/adminExpense/{expense}' , 'expenseView')->name('expenseView');
+});
+
+
+// subject route here
 
 
 
@@ -95,8 +111,29 @@ Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Contr
 
 
 
-// accountant route
-Route::middleware(['auth:sanctum'])->controller(App\Http\Controllers\accountant\expenseController::class)->group(function(){
+
+
+
+
+
+
+
+
+
+
+
+// end of Administrator routes right here
+
+
+
+
+
+
+
+
+
+// accountant routes starts here
+Route::middleware(['auth:sanctum', 'accountantOnlyRoute'])->controller(App\Http\Controllers\accountant\expenseController::class)->group(function(){
     Route::get('/expenses_approved' , 'approvedExpenses')->name('approvedExpenses');
 
     Route::get('/expenses_unapproved' , 'unapprovedExpenses')->name('unapprovedExpenses');
@@ -105,7 +142,7 @@ Route::middleware(['auth:sanctum'])->controller(App\Http\Controllers\accountant\
 });
 
 
-Route::middleware(['auth:sanctum'])->controller( App\Http\Controllers\accountant\schoolFeesController::class)->group(function(){
+Route::middleware(['auth:sanctum' , 'accountantOnlyRoute'])->controller( App\Http\Controllers\accountant\schoolFeesController::class)->group(function(){
    Route::get('/selectClass', 'selectClass')->name('loadClassForFees');
    Route::get('/schoolFees/class/{class}', 'enterClass')->name('studentClassFee');
    Route::get('/payFee/{student}', 'payFee')->name('payFee');
@@ -125,3 +162,5 @@ Route::middleware(['auth:sanctum'])->controller(App\Http\Controllers\Teachers\te
     Route::get('/{class}/assessment' , 'classAssessment')->name('classAssessment');
     Route::get('/studentReport/{student}' , 'studentReport')->name('studentReport');
 });
+
+

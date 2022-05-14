@@ -101,8 +101,7 @@ class ReportCard extends Component
                 $data['_grade'] = 'A';
                 break;
             }
-           
-           // dd($data);
+   
             $this->student->report()->create($data);
             $this->emptyValues();
             session()->flash('message', 'Saved succesfully!');
@@ -116,19 +115,21 @@ class ReportCard extends Component
         // $variable term 1-> sorts  the $reports and  and gets the ones where term is one
         // &variable-> term 2 gets the term 2 from the $reports
         // same with term 3
-        //  we then go to the view and display as such
-        $report = $this->student->report()->get();
+        //  we then go to the view and display as sblade siuch
+        $report_list = $this->student->report()->get()->groupBy('__class');
 
-        $firstTerm = $report->where( '_term' , '1');
-        $firstTerm->sortBy('__class');
+        // dd($report);
+        // $firstTerm = $report->where( '_term' , '1');
+        // $firstTerm->sortBy('__class');
 
-        $secondTerm = $report->where( '_term' , '2');
-        $secondTerm->sortBy('_class');
+        // $secondTerm = $report->where( '_term' , '2');
+        // $secondTerm->sortBy('_class');
 
-        $thirdTerm = $report->where( '_term' , '3');
-        $thirdTerm->sortBy('__class');
+        // $thirdTerm = $report->where( '_term' , '3');
+        // $thirdTerm->sortBy('__class');
 
-        return view('livewire.teacher.report-card' , compact(['firstTerm' , 'secondTerm', 'thirdTerm']));
+        // return view('livewire.teacher.report-card' , compact(['report','firstTerm' , 'secondTerm', 'thirdTerm']));
+        return view('livewire.teacher.report-card' , compact(['report_list']));
     }
 
 
