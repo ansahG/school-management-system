@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Accountant;
 use App\Models\Accountant\Expense as Expenses;
 use App\Models\Accountant\SchoolFee;
+use App\Models\Administrator\Events\Event;
 use Livewire\Component;
 
 class Index extends Component
@@ -17,7 +18,10 @@ class Index extends Component
         $totalFees = SchoolFee::where('amount' , '>', 0)->sum('amount');
         $studentWhoPaid = SchoolFee::where('amount' , '>', 0)->count();
 
-        return view('livewire.accountant.index',compact(['approvedCount','notApprovedCount', 'projectedSpendings','totalSpent', 'totalFees' ,'studentWhoPaid']));
+         $events = Event::all()->sortBy('_eventDate');
+        $employeeEvent = $events->where('user_id' , auth()->user()->id);
+
+        return view('livewire.accountant.index',compact(['approvedCount','notApprovedCount', 'projectedSpendings','totalSpent', 'totalFees' ,'studentWhoPaid', 'events' , 'employeeEvent']));
     }
 }
 

@@ -1,21 +1,24 @@
 
 <x-app-layout>
-    <x-slot name="header">
+    <x-slot name="header" >
         <h2 class="h4 font-weight-bold">
             {{ __(auth()->user()->name) }}
         </h2>
     </x-slot>
+
+@if($student->trash == false)
 
 <div class="container">
   <div class="card" style="">
 	@livewire('accountant.school-fees.school-fee', ['student' => $student ])
 </div>
 
+
 <br>
 
-	<div class="container" style="padding-top:30px">
-	
-		<div class="card" style="text-align:center">
+	<div class="container" style="padding-top:30px" >
+	<button class="btn btn-info text-white" id="printBtn" onclick="printReceipt()"> Print </button>
+		<div class="card" style="text-align:center" id="printable">
 
 			<div style="text-align:center"> 
 			<img class="mt-5" width="100px" src="{{ asset('/storage/studentAvatars/'.$student->_studentAvatar) }}">
@@ -96,6 +99,32 @@
 
 
 </div>
+
+@else
+
+<h2 style="color:red"> Student not found in system, check recycle bin and restore student if found to read acadamic details</h2>
+
+@endif
+
 </x-app-layout>
 
 
+<script type="text/javascript">
+
+	$(document).ready(function(){
+
+		//we using a package called printthis js from the web, its not a laravel package.printThis
+		// Check the public/account directory for the js file or check the chrome bookmark under the devTools directory for the link to their site
+		//or check for jquery print this from the inteernet, it only takes the id of the div you wanna print
+
+		$('#printBtn').click(function()
+			{
+				$("#printable").printThis();
+			});
+
+	})
+
+
+
+
+</script>

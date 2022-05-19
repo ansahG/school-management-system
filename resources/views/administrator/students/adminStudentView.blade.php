@@ -75,9 +75,20 @@ body {
                 <span class="text-black-100"> {{$age}} yrs </span>
                 <span> </span></div>
                     <br>
-                 <div class="" style="text-align: center">
-                  <a href="{{ route('studentReport', $admin_student->_firstName) }}" type="submit" class="btn btn-primary text-white">View Academics</a>
-                </div>
+                 
+
+                        @if($admin_student->trash == false)
+                            <div class="" style="text-align: center">
+                                <a href="{{ route('studentReport', $admin_student->_firstName) }}"  class="btn btn-primary text-white">View Academics</a>
+                            </div>
+
+                            @else
+                            <button style="text-align: center" class="btn btn-inactive "> Restore student from recycle bin to view academics</button>
+                        @endif
+
+
+
+
         </div>
         <div class="col-md-6 border-right">
             <div class="p-3 py-5">

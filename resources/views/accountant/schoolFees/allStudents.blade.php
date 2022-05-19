@@ -34,7 +34,7 @@
                   </tr>
 
                     @empty
-                  <h2> No students registered at {{ config('app.name') }} </h2>
+                  <h2> No students registered in this class </h2>
               @endforelse
                   </tbody>
                 </table>

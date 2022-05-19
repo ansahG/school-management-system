@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class teacherController extends Controller
 {
+      
+    public function __construct()
+    {
+        $this->middleware('teacherOnlyRoute')->except('studentReport');
+    }    
+
     public function classAssessment(_Class $class)
     {
         // we enter this class from the route and see the studentas in there

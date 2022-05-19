@@ -1,3 +1,5 @@
+@if($student->trash == false)
+
 @if(auth()->user()->_department == 'Teacher')
 
     {{-- only show this for to teachers --}}
@@ -276,3 +278,15 @@
   <h3 style="text-align:center; color:red"> {{-- show nothing --}} </h3>
 @endforelse
 {{-- the grand and foremost grouping by claass forelse ends here --}}
+
+
+
+@else
+
+<div class="card">
+
+  <h2 style="color:red"> Student not found in system, check recycle bin and restore student if found to read acadamic details</h2>
+
+</div>
+
+@endif

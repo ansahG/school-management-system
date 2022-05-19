@@ -39,7 +39,7 @@
             <hr style="color:red">
 
                 <div class="row">
-                        <div class="btn btn-primary" style="text-align:center; padding-bottom:15px"> Accouting </div>
+                        <div class="btn btn-primary" style="text-align:center; padding-bottom:15px"> Accounting </div>
                         <br>
                    @isset($unapprovedExpenses)
                       <div class="col-sm-6 col-md-3">

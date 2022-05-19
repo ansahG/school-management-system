@@ -19,7 +19,7 @@
                   </tr>
                   </thead>
                   <tbody>
-              @forelse($class->students as $student)
+              @forelse($class->students->where('trash' == false) as $student)
 
                   <tr>
                     <td style="font-style: bold">  {{ $student->_firstName }}. {{ $student->_lastName }}  </td>
@@ -29,7 +29,7 @@
                     </td>
                   </tr>
                   @empty
-                  <h2> No students registered at {{ config('app.name') }} </h2>
+                  <h2> No active student in this class </h2>
               @endforelse
                   </tbody>
                 </table>
