@@ -19,7 +19,7 @@
                   </tr>
                   </thead>
                   <tbody>
-              @forelse($class->students->where('trash' == false) as $student)
+              @forelse($class->students->where('trash' , false) as $student)
 
                   <tr>
                     <td style="font-style: bold">  {{ $student->_firstName }}. {{ $student->_lastName }}  </td>

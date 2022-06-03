@@ -146,6 +146,8 @@ Route::middleware(['auth:sanctum' , 'accountantOnlyRoute'])->controller( App\Htt
    Route::get('/selectClass', 'selectClass')->name('loadClassForFees');
    Route::get('/schoolFees/class/{class}', 'enterClass')->name('studentClassFee');
    Route::get('/payFee/{student}', 'payFee')->name('payFee');
+   Route::post('/deptors/{class}', 'displayDeptors')->name('displayDeptors');
+      Route::get('students/paidList/{class}', 'paidList')->name('paidList');
 });
 
 

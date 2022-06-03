@@ -5,7 +5,23 @@
 @section('content')
 
 
+<div>
+    <form class="row" action="{{ route('displayDeptors', $class->class) }}" method="Post" style="text-align: center;">
+      @csrf
+      <div class="font-weight-bold">
+      Students who have above: <input type="number" class="text-red text-center" name="amountMore">  <button type="submit" class="btn btn-danger"> Find </button>
+      </div>
+      @error('amountLess')
+        <div>
+            <p class="text-red"> {{ $message }} </p>
+        </div>
+      @enderror
+     </form>
 
+      <br>
+ </div>
+
+        <a href="{{ route('paidList', $class->class) }}" class="btn btn-primary"> Paid list  </a> </td>
 
 
             <div class="card">
