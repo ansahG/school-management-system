@@ -9,7 +9,7 @@
     <form class="row" action="{{ route('displayDeptors', $class->class) }}" method="Post" style="text-align: center;">
       @csrf
       <div class="font-weight-bold">
-      Students who have above: <input type="number" class="text-red text-center" name="amountMore">  <button type="submit" class="btn btn-danger"> Find </button>
+      Students who have paid  : <input type="number" class="text-red text-center" name="amountMore">  <button type="submit" class="btn btn-danger"> and up </button>
       </div>
       @error('amountLess')
         <div>
@@ -42,7 +42,7 @@
                @forelse($students as $student)
                   
                   <tr>
-                    <td>{{ $student->_firstName }}. {{ $student->_lastName }} </td>
+                    <td>{{ $student->_firstName }} {{ $student->_lastName }} </td>
                     <td> GHA-{{ $student->_ghanaCard }} </td>
 
                     <td>

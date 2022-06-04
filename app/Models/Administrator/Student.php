@@ -48,4 +48,5 @@ class Student extends Model
         return $this->hasOne(SchoolFee::class);
     }
 
+
 }

@@ -1,4 +1,6 @@
 
+
+
 <x-app-layout>
     <x-slot name="header" >
         <h2 class="h4 font-weight-bold">
@@ -31,7 +33,7 @@
 				</div>
 				<div class="col-6">
 					<h4> 
-						{{ $student->_firstName }} {{ $student->_lastName }}.{{ $student->_lastName[0] }}
+						{{ $student->_firstName }} {{ $student->_lastName }}.{{ $student->_otherName[0] }}
 						<hr>
 					</h4>
 				</div>

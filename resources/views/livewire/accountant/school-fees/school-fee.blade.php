@@ -13,7 +13,7 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="Event_name"> Amount Paying </label>
-                    <input type="number" class="form-control" wire:model='lastPayment' >
+                    <input type="number" class="form-control text-center" wire:model='lastPayment' >
                     @error('lastPayment')
                       <p style="color: red"> {{ $message }} </p>
                     @enderror

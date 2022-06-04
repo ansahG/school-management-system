@@ -33,38 +33,18 @@ class schoolFeesController extends Controller
         $data = request()->validate([
             'amountMore' => ['bail','required','numeric'],
         ]);
-
-        // get students in this class
-         $students = $class->students;
-
-        foreach($students as $student)
-        {
-            //query those who have more than the mentioned amount
-           $list = $student->schoolFees()->where('amount' , '>' , $data)->simplePaginate(15);
-       
-            //pass the data to the controller if any exist
-            if($list->count() >= 1)
-            {
+         // load relationship school feees from the the class module
+         $list = $class->schoolFees->where('amount', '>=', $data['amountMore']);
+                // catch the data entered for the view
                 $amountEntered = $data['amountMore'];
-                return view('accountant.schoolFees.listView' , compact(['list' , 'amountEntered',]));
-            }
-            else{
-                    session()->flash('message' , 'No one exist with an amount more than this');
-                }
-            
-        }
+        return view('accountant.schoolFees.listView' , compact(['list' , 'amountEntered',]));
     }
 
     public function paidList(ClassRoom $class)
     {
        
-         $students = $class->students;
-
-          foreach($students as $student)
-        {
-            $list = $student->schoolFees()->where('amount' , '>' , 0)->simplePaginate(15);
-             return view('accountant.schoolFees.listView' , compact('list'));
-        }
+        $list = $class->schoolFees->where('amount', '>', 0);
+        return view('accountant.schoolFees.listView' , compact('list'));
     }
 
 }
