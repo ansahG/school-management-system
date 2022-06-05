@@ -221,6 +221,6 @@ class StudentForm extends Component
     public function render()
     {
         $classes = ClassRoom::where('_trashed', false)->get();
-        return view('livewire.administrator.Students.student-form', compact('classes'));
+        return view('livewire.administrator.students.student-form', compact('classes'));
     }
 }

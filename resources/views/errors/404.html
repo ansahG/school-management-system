@@ -22,14 +22,10 @@
 
 
 </head>
-<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+
+<body class="hold-transition sidebar-mini">
 <div class="wrapper">
-
-  <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__wobble" src="{{ asset('administrator/dist/img/rtq.jpg') }}" alt="AdminLTELogo" height="60" width="60">
-  </div>
-
+  
 
 
 
@@ -82,15 +78,40 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
+ {{--     /.content-header
+    Main content --}}
+   
+
     <!-- Main content -->
     <section class="content">
-      @yield('content')
-      </div><!--/. container-fluid -->
+      <div class="error-page">
+        <h2 class="headline text-warning"> 404</h2>
+
+        <div class="error-content">
+          <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Page not found.</h3>
+
+          <p>
+            We could not find the page you were looking for.
+            Meanwhile, you may <a href="{{ route('dashboard') }}">return to dashboard</a> or try using the search form.
+          </p>
+
+        {{--   <form class="search-form">
+            <div class="input-group">
+              <input type="text" name="search" class="form-control" placeholder="Search">
+
+              <div class="input-group-append">
+                <button type="submit" name="submit" class="btn btn-warning"><i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.input-group -->
+          </form> --}}
+        </div>
+        <!-- /.error-content -->
+      </div>
+      <!-- /.error-page -->
     </section>
-
-    
-
+  
 
     <!-- /.content -->
   </div>

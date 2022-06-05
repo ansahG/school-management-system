@@ -17,8 +17,11 @@
   <link rel="stylesheet" href="{{ asset('administrator/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('administrator/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('administrator/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{{ asset('administrator/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('administrator/dist/css/adminlte.min.css') }}">
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -97,10 +100,16 @@
 </div>
 <!-- ./wrapper -->
 
+<!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
-<script src="{{ asset("administrator/plugins/jquery/jquery.min.js") }}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{ asset("administrator/plugins/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
+<script src="{{ asset('administrator/plugins/jquery/jquery.min.js') }}"></script>
+<!-- Bootstrap -->
+<script src="{{ asset('administrator/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- overlayScrollbars -->
+<script src="{{ asset('administrator/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('administrator/dist/js/adminlte.js') }}"></script>
+
 <!-- DataTables  & Plugins -->
 <script src="{{ asset("administrator/plugins/datatables/jquery.dataTables.min.js") }}"></script>
 <script src="{{ asset("administrator/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js") }}"></script>
