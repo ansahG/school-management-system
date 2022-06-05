@@ -23,6 +23,6 @@ class Index extends Component
         $projectedSpendings = Expenses::all()->sum('_amountSpending');
         $totalSpent = Expenses::where('_approved' , true)->get()->sum('_amountSpending');
 
-        return view('livewire.Administrator.index', compact(['employeesCount', 'studentsCount','classesCount','upcomingEventsCount', 'unapprovedExpenses', 'approvedExpense','projectedSpendings', 'totalSpent' ]));
+        return view('livewire.administrator.index', compact(['employeesCount', 'studentsCount','classesCount','upcomingEventsCount', 'unapprovedExpenses', 'approvedExpense','projectedSpendings', 'totalSpent' ]));
     }
 }
