@@ -20,8 +20,8 @@ class Index extends Component
         $upcomingEventsCount = Event::where('_eventDate', '>' , Carbon::today())->count();
         $unapprovedExpenses =  Expenses::where('_approved' , false)->count();
         $approvedExpense =  Expenses::where('_approved' , true)->count();
-        $projectedSpendings = Expenses::sum('_amountSpending');
-        $totalSpent = Expenses::where('_approved' , true)->sum('_amountSpending');
+        $projectedSpendings = Expenses::all()->sum('_amountSpending');
+        $totalSpent = Expenses::where('_approved' , true)->get()->sum('_amountSpending');
 
         return view('livewire.Administrator.index', compact(['employeesCount', 'studentsCount','classesCount','upcomingEventsCount', 'unapprovedExpenses', 'approvedExpense','projectedSpendings', 'totalSpent' ]));
     }

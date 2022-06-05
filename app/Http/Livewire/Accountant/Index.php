@@ -13,9 +13,9 @@ class Index extends Component
         $approvedCount = Expenses::where('_approved' , true)->count();
         $notApprovedCount = Expenses::where('_approved' , false)->count();  
         $projectedSpendings = Expenses::sum('_amountSpending');
-        $totalSpent = Expenses::where('_approved' , true)->sum('_amountSpending');   
+        $totalSpent = Expenses::where('_approved' , true)->get()->sum('_amountSpending');   
         // load and sum amount of the school fees without adding negative values as they only allow to know who owes, see below for further detail
-        $totalFees = SchoolFee::where('amount' , '>', 0)->sum('amount');
+        $totalFees = SchoolFee::where('amount' , '>', 0)->get()->sum('amount');
         $studentWhoPaid = SchoolFee::where('amount' , '>', 0)->count();
 
          $events = Event::all()->sortBy('_eventDate');

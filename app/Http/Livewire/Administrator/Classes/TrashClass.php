@@ -51,7 +51,7 @@ class TrashClass extends Component
            //  $student->delete();
            //  $class= _Class::where('id', $id)->delete();
            // session()->flash('message', 'Class restored succefully');
-           //  return redirect()->route('classRecycle');
+           //  return redirect()g->route('classRecycle');
         }
 
 

@@ -10,7 +10,7 @@
 
     switch($department) 
     {
-      case 'Administrator' : { echo( view('administrator.index') ); }
+      case 'Administrator' : { echo( view('administrator.Index') ); }
       break; 
       case 'Accountant' : { echo( view('accountant.index') ); }
       break; 
