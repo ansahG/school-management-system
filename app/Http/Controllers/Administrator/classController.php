@@ -37,4 +37,11 @@ class classController extends Controller
         $recycleClasses = _Class::where('_trashed' , true)->get();
         return view('administrator.classes.classRecycleBin', compact('recycleClasses'));
     }
+
+
+    public function deletePermanently(_Class $_class)
+    {
+        // $students = $_class->students;
+        // dd($students->_studentAvatar);
+    }
 }

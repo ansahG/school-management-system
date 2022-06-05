@@ -46,8 +46,10 @@ Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Contr
     Route::get('/all-students', 'allStudents')->name('allStudents');
 
     Route::get('/students/{admin_student}', 'adminStudent')->name('adminStudent');
+    Route::delete('/removePermanently/{student}' , 'removePermanently')->name('removePermanently');
     // report card view for admin
     Route::get('/report/{class}/{admin_student}', 'adminViewReportCard')->name('adminViewReportCard');
+
 });
 
 
@@ -62,6 +64,7 @@ Route::middleware(['auth:sanctum', 'adminOnlyRoute'])->controller(App\Http\Contr
     Route::get('/Class_recycle', 'Class_recycle')->name('classRecycle');
     Route::get('/class/{class}', 'viewClass')->name('viewClass');
     Route::get('/editClass/{_class}', 'editClass')->name('editClass');
+    Route::delete('/deletePermanently/{_class}', 'deletePermanently')->name('deleteClassPermanently');
 });
 
 

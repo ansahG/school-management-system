@@ -24,7 +24,7 @@ class teacherController extends Controller
 
     public function studentReport(Student $student)
     {
-        $classes = _Class::get();
+        $classes = _Class::where('_trashed' , false)->get();
         return view('Teacher.reportCard', compact(['student' , 'classes']));
     }
 }

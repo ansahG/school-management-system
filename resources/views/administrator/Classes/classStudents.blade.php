@@ -21,7 +21,7 @@
               @forelse($class->students as $student)
 
                   <tr>
-                    <td style="font-style: bold">  {{ $student->_firstName }}. {{ $student->_lastName }}  </td>
+                    <td style="font-style: bold">  {{ $student->_firstName }} {{ $student->_lastName }}  </td>
                     <td> GHA-{{ $student->_ghanaCard }}</td>
                    {{--  <td> {{ $student->_class_id->class }}</td> --}}
                     <td> <a href="{{ route('adminStudent', $student->_firstName) }}" class="btn btn-success"> View </a>

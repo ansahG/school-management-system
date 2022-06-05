@@ -16,7 +16,7 @@
                @forelse($students as $student)
                   
                   <tr>
-                    <td>{{ $student->_firstName }}. {{ $student->_lastName }} </td>
+                    <td>{{ $student->_firstName }} {{ $student->_lastName }} </td>
                     <td> GHA-{{ $student->_ghanaCard }} </td>
                     <td><a href="{{ route('adminStudent', $student->_firstName) }}" class="btn btn-success"> View </a>
                      <a href="{{ route('studentFormEdit', $student->_firstName) }}" class="btn btn-primary"> Edit </a> </td>

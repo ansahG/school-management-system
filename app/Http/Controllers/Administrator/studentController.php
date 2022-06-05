@@ -6,6 +6,8 @@ use App\Models\Administrator\Student;
 use App\Models\classes\_Class;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 use Carbon\Carbon;
 
 class studentController extends Controller
@@ -49,14 +51,21 @@ class studentController extends Controller
                                                                                                        
     }
 
-    // // report card view for student. Loading only the erport card
-    // public function adminViewReportCard(_Class $class ,Student $student)
-    // {
-    //     // here we load this current student's report cards
-    //     $tudentReport = $student->load('report');
-    //     $classSortedReport = 
-    //     dd($tudentReport);
-    // }
+    
+    public function removePermanently(Student $student)
+    {
+        $student->report()->delete();
+        $student->schoolFees()->delete();
+        $path = public_path('/storage/studentAvatars/'.$student->_studentAvatar);
+        if(\File::exists($path))
+        {
+            unlink($path);
+              $student->delete();
+            return redirect()->back();
+        }
+        $student->delete();
+        return redirect()->back();
+    }
 
 }
 

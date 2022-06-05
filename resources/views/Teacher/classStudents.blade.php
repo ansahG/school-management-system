@@ -22,7 +22,7 @@
               @forelse($class->students->where('trash' , false) as $student)
 
                   <tr>
-                    <td style="font-style: bold">  {{ $student->_firstName }}. {{ $student->_lastName }}  </td>
+                    <td style="font-style: bold">  {{ $student->_firstName }} {{ $student->_lastName }}  </td>
                     <td> GHA-{{ $student->_ghanaCard }}</td>
                   {{--<td> {{ $student->__class_id->class }}</td>--}} 
                    <td> <a href="{{ route('studentReport', $student->_firstName) }}" class="btn btn-success"> View </a>

@@ -17,11 +17,15 @@
                @forelse($trashedStudent as $student)
                   
                   <tr>
-                    <td>{{ $student->_firstName }}. {{ $student->_lastName }} </td>
+                    <td>{{ $student->_firstName }} {{ $student->_lastName }} </td>
                     <td> GHA-{{ $student->_ghanaCard }} </td>
                     <td>
+                     <form action="{{ route('removePermanently', $student->_firstName) }}" method="Post">
+                      @csrf 
+                      @method('DELETE')
                       <a href="{{ route('adminStudent', $student->_firstName) }}" class="btn btn-success text-white"> View </a>
-                     <button  wire:click='deletePermanently({{ $student->id  }})' class="btn btn-danger text-white"> Delete Permanently  </button> 
+                    <button  class="btn btn-danger text-white" type="submit"> Delete Permanently  </button> 
+                     </form>
                     </td>
                   </tr>
 
