@@ -41,6 +41,7 @@ class classController extends Controller
 
     public function deletePermanently(_Class $_class)
     {
+        
         // $students = $_class->students;
         // dd($students->_studentAvatar);
     }
